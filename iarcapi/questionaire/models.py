@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class examQA(models.Model):
     Question = models.CharField(max_length=255)
     CorrectAnswer = models.CharField(max_length=255)

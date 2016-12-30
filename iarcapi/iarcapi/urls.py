@@ -26,5 +26,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
+    url(r'^qs/$', views.questionview_list),
+    url(r'^qs/(?P<pk>[0-9]+)/$', views.questionview_detail),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
