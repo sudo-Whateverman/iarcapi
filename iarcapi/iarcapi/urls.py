@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
+from questionaire import views
+
+router = routers.DefaultRouter()
+#makes sure that the API endpoints work
+router.register(r'api/questionaire', views.questionview, base_name='nick')
+admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
